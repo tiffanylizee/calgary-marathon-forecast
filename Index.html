@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calgary 3-Day Forecast</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 30px;
+      color: #222;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .forecast-container {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    .day-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #0d4f8b;
+    }
+
+    .summary {
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th {
+      text-align: left;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #ddd;
+    }
+
+    td {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .temp {
+      font-weight: bold;
+      color: #d35400;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Calgary 3-Day Forecast</h1>
+
+<div class="forecast-container">
+
+  <!-- Friday -->
+  <div class="day-card">
+    <h2>Friday</h2>
+
+    <div class="summary">
+      <strong>FRIDAY SUMMARY:</strong> A warm and stable day! High of 19°C with mostly sunshine and light winds.
+    </div>
+  </div>
+
+  <!-- Saturday -->
+  <div class="day-card">
+    <h2>Saturday</h2>
+
+    <div class="summary">
+      <strong>SATURDAY SUMMARY:</strong> Mild and mainly dry through the morning with a high of 21°C. There is some instability later in the afternoon and into the evening. We could see a scattered shower or weak thunderstorm. There's also a chance of light, scattered showers overnight into Sunday morning, but most models are showing only a small chance of that and very limited moisture, if any. I'll keep an eye on it.
+    </div>
+
+    <table>
+      <tr>
+        <th>Time</th>
+        <th>Sky</th>
+        <th>Temp</th>
+        <th>Wind</th>
+      </tr>
+
+      <tr>
+        <td>6 AM</td>
+        <td>Mostly cloudy</td>
+        <td class="temp">7°C</td>
+        <td>SW 10 km/h</td>
+      </tr>
+
+      <tr>
+        <td>7 AM</td>
+        <td>Mostly cloudy</td>
+        <td class="temp">8°C</td>
+        <td>SW 10 to 15 km/h</td>
+      </tr>
+
+      <tr>
+        <td>8 AM</td>
+        <td>Mostly cloudy</td>
+        <td class="temp">10°C</td>
+        <td>SW 10 to 15 km/h</td>
+      </tr>
+
+      <tr>
+        <td>9 AM</td>
+        <td>Partly cloudy</td>
+        <td class="temp">12°C</td>
+        <td>SW 15 km/h</td>
+      </tr>
+
+      <tr>
+        <td>10 AM</td>
+        <td>Partly sunny</td>
+        <td class="temp">14°C</td>
+        <td>SW 15 to 20 km/h</td>
+      </tr>
+
+      <tr>
+        <td>11 AM</td>
+        <td>Mix of sun and cloud</td>
+        <td class="temp">15°C</td>
+        <td>SW 15 to 20 km/h</td>
+      </tr>
+
+      <tr>
+        <td>12 PM</td>
+        <td>Mix of sun and cloud</td>
+        <td class="temp">18°C</td>
+        <td>SW 10 to 15 km/h</td>
+      </tr>
+
+      <tr>
+        <td>1 PM</td>
+        <td>Mostly cloudy</td>
+        <td class="temp">20°C</td>
+        <td>SW 10 to 15 km/h</td>
+      </tr>
+
+    </table>
+  </div>
+
+  <!-- Sunday -->
+  <div class="day-card">
+    <h2>Sunday</h2>
+
+    <div class="summary">
+      <strong>SUNDAY SUMMARY:</strong> As mentioned, there is a small chance of precipitation in the very early morning hours, but at this time, we're not expecting much rain, if any. The day will start cloudy, but once the sun starts to peek out, temperatures will slowly warm up.
+    </div>
+
+    <table>
+      <tr>
+        <th>Time</th>
+        <th>Sky</th>
+        <th>Temp</th>
+        <th>Wind</th>
+      </tr>
+
+      <tr>
+        <td>6 AM</td>
+        <td>Cloudy</td>
+        <td class="temp">6°C</td>
+        <td>NW 10 to 15 km/h</td>
+      </tr>
+
+      <tr>
+        <td>7 AM</td>
+        <td>Cloudy</td>
+        <td class="temp">7°C</td>
+        <td>W 10 km/h</td>
+      </tr>
+
+      <tr>
+        <td>8 AM</td>
+        <td>Cloudy</td>
+        <td class="temp">9°C</td>
+        <td>SW 10 to 15 km/h</td>
+      </tr>
+
+      <tr>
+        <td>9 AM</td>
+        <td>Cloudy</td>
+        <td class="temp">11°C</td>
+        <td>SW 15 to 20 km/h</td>
+      </tr>
+
+      <tr>
+        <td>10 AM</td>
+        <td>Mostly cloudy</td>
+        <td class="temp">13°C</td>
+        <td>SW 15 to 20 km/h</td>
+      </tr>
+
+      <tr>
+        <td>11 AM</td>
+        <td>Mostly cloudy</td>
+        <td class="temp">15°C</td>
+        <td>SW 15 to 20 km/h</td>
+      </tr>
+
+      <tr>
+        <td>12 PM</td>
+        <td>Partly cloudy</td>
+        <td class="temp">16°C</td>
+        <td>S 20 km/h</td>
+      </tr>
+
+      <tr>
+        <td>1 PM</td>
+        <td>Partly cloudy</td>
+        <td class="temp">18°C</td>
+        <td>SW 20 km/h</td>
+      </tr>
+
+    </table>
+  </div>
+
+</div>
+
+</body>
+</html>

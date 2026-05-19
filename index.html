@@ -16,7 +16,66 @@
       --muted: #6b7280;
       --border: #dbe3ea;
     }
-    
+    .current-conditions {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  border-top: 5px solid var(--blue);
+}
+
+.current-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.current-item {
+  background: #fafcfd;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.current-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.current-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--dark);
+}
+
+.current-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.current-temp {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--blue);
+}
+
+.current-sky {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.current-updated {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 16px;
+}
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -171,6 +230,72 @@
   </style>
 </head>
 
+  <!-- ADD THIS SCRIPT RIGHT BEFORE </body> -->
+
+<script>
+async function loadCurrentConditions() {
+  try {
+
+    // WeatherLink embed source
+    const response = await fetch(
+      'https://www.weatherlink.com/embeddablePage/show/6117aa3235584e55902582c5612bb449/summary'
+    );
+
+    const html = await response.text();
+
+    // Convert response into searchable HTML
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+
+    // NOTE:
+    // WeatherLink changes class names occasionally.
+    // You may need to inspect the page and adjust selectors.
+
+    const getText = (selector) => {
+      const el = doc.querySelector(selector);
+      return el ? el.textContent.trim() : '--';
+    };
+
+    // Example selectors
+    // These may need adjusting depending on WeatherLink structure
+
+    const temperature = getText('[data-testid="temp"]');
+    const sky = getText('[data-testid="condition"]');
+    const dewPoint = getText('[data-testid="dew-point"]');
+    const humidity = getText('[data-testid="humidity"]');
+    const wind = getText('[data-testid="wind"]');
+    const wetBulb = getText('[data-testid="wet-bulb"]');
+
+    // Update page
+    document.getElementById('currentTemp').textContent =
+      temperature || '--°C';
+
+    document.getElementById('currentSky').textContent =
+      sky || 'Unavailable';
+
+    document.getElementById('dewPoint').textContent =
+      dewPoint || '--';
+
+    document.getElementById('humidity').textContent =
+      humidity || '--';
+
+    document.getElementById('wind').textContent =
+      wind || '--';
+
+    document.getElementById('wetBulb').textContent =
+      wetBulb || '--';
+
+  } catch (error) {
+    console.error('Error loading current conditions:', error);
+  }
+}
+
+// Initial load
+loadCurrentConditions();
+
+// Refresh every 2 minutes
+setInterval(loadCurrentConditions, 120000);
+</script>
   
 <body>
 
@@ -187,6 +312,45 @@
       I'll update this website by 6 PM every day, and then hourly from 6 AM to 1 PM on Saturday and Sunday.
     </section>
 
+<section class="current-conditions">
+  <h2>Current Conditions</h2>
+
+  <div class="current-main">
+    <div>
+      <div class="current-temp" id="currentTemp">--°C</div>
+      <div class="current-sky" id="currentSky">Loading...</div>
+    </div>
+  </div>
+
+  <div class="current-grid">
+
+    <div class="current-item">
+      <div class="current-label">Wet Bulb</div>
+      <div class="current-value" id="wetBulb">--</div>
+    </div>
+
+    <div class="current-item">
+      <div class="current-label">Dew Point</div>
+      <div class="current-value" id="dewPoint">--</div>
+    </div>
+
+    <div class="current-item">
+      <div class="current-label">Humidity</div>
+      <div class="current-value" id="humidity">--</div>
+    </div>
+
+    <div class="current-item">
+      <div class="current-label">Wind</div>
+      <div class="current-value" id="wind">--</div>
+    </div>
+
+  </div>
+
+  <div class="current-updated">
+    Updated every 2 minutes
+  </div>
+</section>
+    
     <!-- Friday -->
     <section class="day-card">
       <h2>Friday</h2>

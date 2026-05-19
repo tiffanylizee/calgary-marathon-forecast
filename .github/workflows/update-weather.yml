@@ -1,0 +1,33 @@
+name: Update Weather Conditions
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-weather:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch WeatherLink data
+        run: |
+          mkdir -p data
+          curl -L "https://www.weatherlink.com/embeddablePage/show/6117aa3235584e55902582c5612bb449/summary" > data/weatherlink.html
+
+      - name: Create current conditions JSON
+        run: |
+          node scripts/parse-weather.js
+
+      - name: Commit updated weather data
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add data/current-conditions.json
+          git commit -m "Update current weather conditions" || echo "No changes"
+          git push

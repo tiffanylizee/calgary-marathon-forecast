@@ -50,11 +50,18 @@
     }
 
     .day-card,
+    .info-card,
     .radar-section {
       background: var(--card);
       border-radius: 18px;
       padding: 22px;
       box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    .info-card {
+      border-left: 5px solid var(--blue);
+      line-height: 1.5;
+      font-weight: 600;
     }
 
     h2 {
@@ -173,23 +180,15 @@
 
   <main class="container">
 
-    <section class="radar-section">
-      <h2>LIVE RADAR</h2>
-
-      <div class="radar-frame">
-        <iframe
-          src="https://www.wmiradar.com/ahsp/index.php?type=loop&rad=olds&var=comp&length=10"
-          title="Live Radar"
-          loading="lazy">
-        </iframe>
-      </div>
+    <section class="info-card">
+      I'll be updating this website by 6 PM every day, then hourly from 6 AM to 1 PM on Saturday and Sunday.
     </section>
 
     <section class="day-card">
       <h2>Friday</h2>
 
       <div class="summary">
-        <strong>FRIDAY SUMMARY:</strong> A warm and stable day! High of 19C with mostly sunshine and light winds.
+        <strong>SUMMARY:</strong> A warm and stable day! High of 19C with mostly sunshine and light winds.
       </div>
 
       <div class="period-grid">
@@ -220,7 +219,7 @@
       <h2>Saturday</h2>
 
       <div class="summary">
-        <strong>SATURDAY SUMMARY:</strong> Mild and mainly dry through the morning with a high of 21C. There is some instability later in the afternoon and into the evening. We could see a scattered shower or weak thunderstorm. There's also a chance of light, scattered showers overnight into Sunday morning... BUT most models are showing a small chance of that and not much moisture, if any. I'll keep an eye on it.
+        <strong>SUMMARY:</strong> Mild and mainly dry through the morning with a high of 21C. There is some instability later in the afternoon and into the evening. We could see a scattered shower or weak thunderstorm. There's also a chance of light, scattered showers overnight into Sunday morning... BUT most models are showing a small chance of that and not much moisture, if any. I'll keep an eye on it.
       </div>
 
       <div class="period-grid">
@@ -263,7 +262,7 @@
       <h2>Sunday</h2>
 
       <div class="summary">
-        <strong>SUNDAY SUMMARY:</strong> As mentioned, a small chance of precipitation in the early morning hours, but at this time, we're not expecting much rain, if any. The day will start cloudy but once the sun starts to peek out, temperatures will slowly warm up!
+        <strong>SUMMARY:</strong> As mentioned, a small chance of precipitation in the early morning hours, but at this time, we're not expecting much rain, if any. The day will start cloudy but once the sun starts to peek out, temperatures will slowly warm up!
       </div>
 
       <div class="period-grid">
@@ -300,6 +299,18 @@
         <tr><td class="time">12 PM</td><td>Partly cloudy</td><td>10%</td><td class="temp">16°C</td><td>S 20 km/h</td></tr>
         <tr><td class="time">1 PM</td><td>Partly cloudy</td><td>10%</td><td class="temp">18°C</td><td>SW 20 km/h</td></tr>
       </table>
+    </section>
+
+    <section class="radar-section">
+      <h2>Live Radar</h2>
+
+      <div class="radar-frame">
+        <iframe
+          src="https://www.wmiradar.com/ahsp/index.php?type=loop&rad=olds&var=comp&length=10"
+          title="Live Radar"
+          loading="lazy">
+        </iframe>
+      </div>
     </section>
 
   </main>

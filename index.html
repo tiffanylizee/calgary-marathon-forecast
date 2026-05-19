@@ -20,7 +20,7 @@
       --high: #d62828;
       --extreme: #000000;
     }
-
+    
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -85,6 +85,21 @@
       font-weight: bold;
     }
 
+    .risk-mod {
+      color: var(--mod);
+      font-weight: bold;
+    }
+
+    .risk-high {
+      color: var(--high);
+      font-weight: bold;
+    }
+
+    .risk-extreme {
+      color: var(--extreme);
+      font-weight: bold;
+    }
+
     .summary {
       line-height: 1.55;
       margin-bottom: 18px;
@@ -126,6 +141,25 @@
       line-height: 1.4;
     }
 
+    .radar-frame {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 75%;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #eef2f5;
+    }
+
+    .radar-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -146,25 +180,6 @@
 
     .time {
       font-weight: bold;
-    }
-
-    .radar-frame {
-      position: relative;
-      width: 100%;
-      height: 0;
-      padding-bottom: 75%;
-      overflow: hidden;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: #eef2f5;
-    }
-
-    .radar-frame iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
     }
 
     @media (max-width: 700px) {
@@ -191,131 +206,107 @@
 
   <section class="hero">
     <h1>Calgary Marathon Forecast</h1>
-    <div class="updated">LAST UPDATED: Tuesday, May 19 at 6:00 PM</div>
+    <div class="updated">
+      LAST UPDATED: Monday, May 18 at 6:52 PM
+    </div>
   </section>
 
   <main class="container">
 
     <section class="info-card">
-      I'll update this website by 6 PM every day, and then hourly from 6 AM to 1 PM on Saturday and Sunday.
+      Forecast updates will be posted daily by 6 PM, with hourly updates from 6 AM to 1 PM on Saturday and Sunday.
     </section>
 
+    <!-- Friday -->
     <section class="day-card">
       <h2>Friday</h2>
 
       <div class="summary">
         <strong>SUMMARY:</strong>
-        A warm and stable day with light winds. We could see gusts pick up to 30 kph late Friday night.
+        Warm and stable with mostly sunshine and light winds.
       </div>
 
       <div class="period-grid">
+
         <div class="period-card">
           <h3>Morning</h3>
-          <div class="icon">🌤️</div>
-          <div class="temp">10°C</div>
-          <div class="details">Mostly sunny<br>SW 10 kph</div>
-        </div>
-
-        <div class="period-card">
-          <h3>Afternoon</h3>
-          <div class="icon">🌤️</div>
-          <div class="temp">20°C</div>
-          <div class="details">Mostly sunny<br>SE 10 kph</div>
-        </div>
-
-        <div class="period-card">
-          <h3>Evening</h3>
-          <div class="icon">🌥️</div>
-          <div class="temp">17°C</div>
-          <div class="details">Mostly cloudy<br>SE 10 to 20 kph</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="day-card">
-      <h2>Saturday</h2>
-
-      <div class="risk-summary">
-        EVENT ALERT LEVEL: <span class="risk-low">LOW</span><br>
-        AQHI: <span class="risk-low">LOW</span>
-      </div>
-
-      <div class="summary">
-        <strong>SUMMARY:</strong>
-        Mild and mainly dry through the morning with a high near 21°C. Some instability may develop later in the afternoon and evening, bringing the chance of a scattered shower or weak thunderstorm. There is also a slight chance of light, scattered showers overnight into Sunday morning, but most models are showing limited moisture at this point. I'll keep an eye on it.
-      </div>
-
-      <div class="period-grid">
-        <div class="period-card">
-          <h3>Morning</h3>
-          <div class="icon">⛅️</div>
-          <div class="temp">12°C</div>
-          <div class="details">Partly cloudy<br>SW 15 kph</div>
-        </div>
-
-        <div class="period-card">
-          <h3>Afternoon</h3>
-          <div class="icon">🌥️</div>
-          <div class="temp">21°C</div>
-          <div class="details">Mostly cloudy<br>SW 10 to 15 kph</div>
-        </div>
-
-        <div class="period-card">
-          <h3>Evening</h3>
-          <div class="icon">🌥️</div>
-          <div class="temp">12°C</div>
-          <div class="details">Mostly cloudy<br>SW 10 to 15 kph</div>
-        </div>
-      </div>
-
-      <table>
-        <tr>
-          <th>Time</th>
-          <th>Sky</th>
-          <th>POP</th>
-          <th>Temp</th>
-          <th>Wet Bulb</th>
-          <th>Wind</th>
-        </tr>
-
-        <tr><td class="time">6 AM</td><td>Mostly cloudy</td><td>10%</td><td class="temp">7°C</td><td></td><td>SW 10</td></tr>
-        <tr><td class="time">7 AM</td><td>Mostly cloudy</td><td>10%</td><td class="temp">8°C</td><td></td><td>SW 10 to 15</td></tr>
-        <tr><td class="time">8 AM</td><td>Mostly cloudy</td><td>10%</td><td class="temp">10°C</td><td></td><td>SW 10 to 15</td></tr>
-        <tr><td class="time">9 AM</td><td>Partly cloudy</td><td>10%</td><td class="temp">12°C</td><td></td><td>SW 15</td></tr>
-        <tr><td class="time">10 AM</td><td>Partly sunny</td><td>10%</td><td class="temp">14°C</td><td></td><td>SW 15 to 20</td></tr>
-        <tr><td class="time">11 AM</td><td>Mix sun/cloud</td><td>10%</td><td class="temp">15°C</td><td></td><td>SW 15 to 20</td></tr>
-        <tr><td class="time">12 PM</td><td>Mix sun/cloud</td><td>20%</td><td class="temp">18°C</td><td></td><td>SW 10 to 15</td></tr>
-        <tr><td class="time">1 PM</td><td>Mostly cloudy</td><td>20%</td><td class="temp">20°C</td><td></td><td>SW 10 to 15</td></tr>
-      </table>
-    </section>
-
-    <section class="day-card">
-      <h2>Sunday</h2>
-
-      <div class="risk-summary">
-        EVENT ALERT LEVEL: <span class="risk-low">LOW</span><br>
-        AQHI: <span class="risk-low">LOW</span>
-      </div>
-
-      <div class="summary">
-        <strong>SUMMARY:</strong>
-        A small chance of precipitation in the early morning hours, but at this time, we're not expecting much rain, if any. The day will start cloudy, but once the sun starts to peek out, temperatures will slowly warm up.
-      </div>
-
-      <div class="period-grid">
-        <div class="period-card">
-          <h3>Morning</h3>
-          <div class="icon">☁️</div>
+          <div class="icon">⛅</div>
           <div class="temp">11°C</div>
-          <div class="details">Cloudy<br>SW 15 to 20 kph</div>
+          <div class="details">
+            Partly cloudy<br>
+            SW 10 kph
+          </div>
         </div>
 
         <div class="period-card">
           <h3>Afternoon</h3>
           <div class="icon">⛅</div>
-          <div class="temp">18°C</div>
-          <div class="details">Partly cloudy<br>SW 20 kph</div>
+          <div class="temp">19°C</div>
+          <div class="details">
+            Partly cloudy<br>
+            SE 10 kph
+          </div>
         </div>
+
+        <div class="period-card">
+          <h3>Evening</h3>
+          <div class="icon">🌥️</div>
+          <div class="temp">13°C</div>
+          <div class="details">
+            Mostly cloudy<br>
+            SE 10 - 20 kph
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Saturday -->
+    <section class="day-card">
+      <h2>Saturday</h2>
+
+      <div class="risk-summary">
+        EVENT ALERT LEVEL: <span class="risk-low">LOW</span><br>
+        AQHI: <span class="risk-low">LOW</span><br>
+      </div>
+
+      <div class="summary">
+        <strong>SUMMARY:</strong>
+        Mild and mainly dry through the morning, with a slight chance of a scattered shower or weak thunderstorm later in the day.
+      </div>
+
+      <div class="period-grid">
+
+        <div class="period-card">
+          <h3>Morning</h3>
+          <div class="icon">⛅</div>
+          <div class="temp">12°C</div>
+          <div class="details">
+            Partly cloudy<br>
+            SW 15 kph
+          </div>
+        </div>
+
+        <div class="period-card">
+          <h3>Afternoon</h3>
+          <div class="icon">⛅</div>
+          <div class="temp">22°C</div>
+          <div class="details">
+            Partly cloudy<br>
+            SW 15 - 20 kph
+          </div>
+        </div>
+
+        <div class="period-card">
+          <h3>Evening</h3>
+          <div class="icon">🌥️</div>
+          <div class="temp">13°C</div>
+          <div class="details">
+            Mostly cloudy<br>
+            SW 15 kph
+          </div>
+        </div>
+
       </div>
 
       <table>
@@ -328,17 +319,87 @@
           <th>Wind</th>
         </tr>
 
-        <tr><td class="time">6 AM</td><td>Cloudy</td><td>30%</td><td class="temp">6°C</td><td></td><td>NW 10 to 15</td></tr>
-        <tr><td class="time">7 AM</td><td>Cloudy</td><td>20%</td><td class="temp">7°C</td><td></td><td>W 10</td></tr>
-        <tr><td class="time">8 AM</td><td>Cloudy</td><td>20%</td><td class="temp">9°C</td><td></td><td>SW 10 to 15</td></tr>
-        <tr><td class="time">9 AM</td><td>Cloudy</td><td>20%</td><td class="temp">11°C</td><td></td><td>SW 15 to 20</td></tr>
-        <tr><td class="time">10 AM</td><td>Mostly cloudy</td><td>10%</td><td class="temp">13°C</td><td></td><td>SW 15 to 20</td></tr>
-        <tr><td class="time">11 AM</td><td>Mostly cloudy</td><td>10%</td><td class="temp">15°C</td><td></td><td>SW 15 to 20</td></tr>
-        <tr><td class="time">12 PM</td><td>Partly cloudy</td><td>10%</td><td class="temp">16°C</td><td></td><td>S 20</td></tr>
-        <tr><td class="time">1 PM</td><td>Partly cloudy</td><td>10%</td><td class="temp">18°C</td><td></td><td>SW 20</td></tr>
+        <tr><td class="time">3 AM</td><td>Mostly cloudy</td><td>10%</td><td class="temp">5°C</td><td>3°C</td><td>SW 10</td></tr>
+        <tr><td class="time">6 AM</td><td>Mostly cloudy</td><td>10%</td><td class="temp">7°C</td><td>5°C</td><td>SW 10</td></tr>
+        <tr><td class="time">9 AM</td><td>Partly cloudy</td><td>10%</td><td class="temp">12°C</td><td>8°C</td><td>SW 15</td></tr>
+        <tr><td class="time">12 PM</td><td>Mix sun/cloud</td><td>20%</td><td class="temp">18°C</td><td>11°C</td><td>SW 10 - 15</td></tr>
+        <tr><td class="time">1 PM</td><td>Mostly cloudy</td><td>20%</td><td class="temp">20°C</td><td>12°C</td><td>SW 10 - 15</td></tr>
+        <tr><td class="time">3 PM</td><td>Mostly cloudy</td><td>30%</td><td class="temp">21°C</td><td>13°C</td><td>SW 15 - 20</td></tr>
+        <tr><td class="time">6 PM</td><td>Mostly cloudy</td><td>40%</td><td class="temp">18°C</td><td>11°C</td><td>SW 15</td></tr>
+        <tr><td class="time">9 PM</td><td>Mostly cloudy</td><td>40%</td><td class="temp">13°C</td><td>9°C</td><td>SW 15</td></tr>
       </table>
     </section>
 
+    <!-- Sunday -->
+    <section class="day-card">
+      <h2>Sunday</h2>
+
+      <div class="risk-summary">
+        EVENT ALERT LEVEL: <span class="risk-low">LOW</span><br>
+        AQHI: <span class="risk-low">LOW</span><br>
+      </div>
+
+      <div class="summary">
+        <strong>SUMMARY:</strong>
+        A cool and cloudy start with a slight early shower risk, then gradual clearing and warmer temperatures through the afternoon.
+      </div>
+
+      <div class="period-grid">
+
+        <div class="period-card">
+          <h3>Morning</h3>
+          <div class="icon">☁️</div>
+          <div class="temp">11°C</div>
+          <div class="details">
+            Cloudy<br>
+            SW 15 - 20 kph
+          </div>
+        </div>
+
+        <div class="period-card">
+          <h3>Afternoon</h3>
+          <div class="icon">⛅</div>
+          <div class="temp">21°C</div>
+          <div class="details">
+            Mix sun/cloud<br>
+            SW 20 - 25 kph
+          </div>
+        </div>
+
+        <div class="period-card">
+          <h3>Evening</h3>
+          <div class="icon">🌥️</div>
+          <div class="temp">14°C</div>
+          <div class="details">
+            Mostly cloudy<br>
+            SW 10 - 15 kph
+          </div>
+        </div>
+
+      </div>
+
+      <table>
+        <tr>
+          <th>Time</th>
+          <th>Sky</th>
+          <th>POP</th>
+          <th>Temp</th>
+          <th>Wet Bulb</th>
+          <th>Wind</th>
+        </tr>
+
+        <tr><td class="time">3 AM</td><td>Cloudy</td><td>30%</td><td class="temp">7°C</td><td>5°C</td><td>W 10</td></tr>
+        <tr><td class="time">6 AM</td><td>Cloudy</td><td>30%</td><td class="temp">6°C</td><td>4°C</td><td>NW 10 - 15</td></tr>
+        <tr><td class="time">9 AM</td><td>Cloudy</td><td>20%</td><td class="temp">11°C</td><td>8°C</td><td>SW 15 - 20</td></tr>
+        <tr><td class="time">12 PM</td><td>Partly cloudy</td><td>10%</td><td class="temp">16°C</td><td>11°C</td><td>S 20</td></tr>
+        <tr><td class="time">1 PM</td><td>Partly cloudy</td><td>10%</td><td class="temp">18°C</td><td>12°C</td><td>SW 20</td></tr>
+        <tr><td class="time">3 PM</td><td>Mix sun/cloud</td><td>10%</td><td class="temp">21°C</td><td>13°C</td><td>SW 20 - 25</td></tr>
+        <tr><td class="time">6 PM</td><td>Partly cloudy</td><td>10%</td><td class="temp">19°C</td><td>11°C</td><td>SW 15 - 20</td></tr>
+        <tr><td class="time">9 PM</td><td>Mostly cloudy</td><td>10%</td><td class="temp">14°C</td><td>9°C</td><td>SW 10 - 15</td></tr>
+      </table>
+    </section>
+
+    <!-- Radar -->
     <section class="radar-section">
       <h2>Live Radar</h2>
 

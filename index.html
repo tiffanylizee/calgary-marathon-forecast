@@ -16,7 +16,47 @@
       --muted: #6b7280;
       --border: #dbe3ea;
     }
+    
+<script>
+  async function loadCurrentConditions() {
+    const proxyUrl = "https://api.allorigins.win/raw?url=";
+    const weatherUrl = "https://weather.gc.ca/en/location/index.html?coords=51.046,-114.057";
 
+    try {
+      const response = await fetch(proxyUrl + encodeURIComponent(weatherUrl));
+      const html = await response.text();
+
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, "text/html");
+
+      const pageText = doc.body.innerText;
+
+      const tempMatch = pageText.match(/Condition:\s*.*?\n.*?Temperature:\s*([-\d.]+)\s*°C/i);
+      const conditionMatch = pageText.match(/Condition:\s*(.*)/i);
+      const windMatch = pageText.match(/Wind:\s*(.*)/i);
+
+      document.getElementById("current-temp").textContent = tempMatch ? tempMatch[1] + "°C" : "Unavailable";
+      document.getElementById("current-condition").textContent = conditionMatch ? conditionMatch[1].trim() : "Unavailable";
+      document.getElementById("current-wind").textContent = windMatch ? windMatch[1].trim() : "Unavailable";
+
+      document.getElementById("current-updated").textContent =
+        "Current conditions refreshed at " + new Date().toLocaleTimeString([], {
+          hour: "numeric",
+          minute: "2-digit"
+        });
+
+    } catch (error) {
+      document.getElementById("current-temp").textContent = "Unavailable";
+      document.getElementById("current-condition").textContent = "Unable to load current conditions.";
+      document.getElementById("current-wind").textContent = "Unavailable";
+      document.getElementById("current-updated").textContent =
+        "Current conditions could not be refreshed.";
+    }
+  }
+
+  loadCurrentConditions();
+  setInterval(loadCurrentConditions, 120000);
+</script>
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -171,6 +211,7 @@
   </style>
 </head>
 
+  
 <body>
 
   <section class="hero">
@@ -185,6 +226,56 @@
     <section class="info-card">
       I'll update this website by 6 PM every day, and then hourly from 6 AM to 1 PM on Saturday and Sunday.
     </section>
+
+<section class="day-card">
+  <h2>Current Conditions</h2>
+
+  <div class="period-grid">
+    <div class="period-card">
+      <h3>Temperature</h3>
+      <div class="temp" id="current-temp">Loading...</div>
+    </div>
+
+    <div class="period-card">
+      <h3>Condition</h3>
+      <div class="details" id="current-condition">Loading...</div>
+    </div>
+
+    <div class="period-card">
+      <h3>Wind</h3>
+      <div class="details" id="current-wind">Loading...</div>
+    </div>
+  </div>
+
+  <div class="details" id="current-updated" style="margin-top: 14px;">
+    Updating current conditions...
+  </div>
+</section>
+    
+    <section class="day-card">
+  <h2>Current Conditions</h2>
+
+  <div class="period-grid">
+    <div class="period-card">
+      <h3>Temperature</h3>
+      <div class="temp" id="current-temp">Loading...</div>
+    </div>
+
+    <div class="period-card">
+      <h3>Condition</h3>
+      <div class="details" id="current-condition">Loading...</div>
+    </div>
+
+    <div class="period-card">
+      <h3>Wind</h3>
+      <div class="details" id="current-wind">Loading...</div>
+    </div>
+  </div>
+
+  <div class="details" id="current-updated" style="margin-top: 14px;">
+    Updating current conditions...
+  </div>
+</section>
 
     <!-- Friday -->
     <section class="day-card">

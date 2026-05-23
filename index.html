@@ -144,7 +144,7 @@
     .radar-frame {
   position: relative;
   width: 100%;
-  height: 700px;
+  height: 650px;
   overflow: hidden;
   border-radius: 14px;
   border: 1px solid var(--border);
@@ -313,18 +313,26 @@
       </table>
     </section>
 
-    <!-- Radar -->
-    <section class="radar-section">
-      <h2>Live Radar</h2>
+<!-- Live Radar -->
+<section class="radar-section">
+  <h2>Live Radar</h2>
 
-      <div class="radar-frame">
-        <iframe
-          https://www.wmiradar.com/ahsp/index.php?type=loop&rad=olds&var=comp&length=10
-          title="Live Radar"
-          loading="lazy">
-        </iframe>
-      </div>
-    </section>
+  <div class="radar-frame">
+    <iframe
+      src="https://www.wmiradar.com/ahsp/index.php?type=loop&rad=olds&var=comp&length=10"
+      title="Live Radar"
+      loading="lazy"
+      referrerpolicy="no-referrer">
+    </iframe>
+  </div>
+
+  <p style="font-size: 0.9rem; color: #6b7280; margin-top: 10px;">
+    If the radar does not load, 
+    <a href="https://www.wmiradar.com/ahsp/index.php?type=loop&rad=olds&var=comp&length=10" target="_blank">
+      open it here
+    </a>.
+  </p>
+</section>
 
   </main>
 
